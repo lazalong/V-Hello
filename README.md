@@ -30,6 +30,19 @@ Launch the `V GDB Debug` and you should see the image above
 
 ## Note
 
+The three most important files are:
+
+`.vscode/launch.json
+.vscode/tasks.json
+.vscode/prettyprinter.py`
+
+launch.json contains the commands that you setup when compiling/debugging.
+Before executing the command it will launch a task (if set) such as `"preLaunchTask": "V GCC Debug Build"`
+
+tasks.json contains the tasks that the command can launch
+
 Although a very good start, `prettyprinter.py` needs more work.
 Also, if possible, I feel this file should be part of the 'V language support for vs code'
 
+That's all folks!
+Happy coding!
