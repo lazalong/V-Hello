@@ -1,0 +1,131 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: 
+    // https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "V GDB Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe", // "${fileDirname}/hello.exe",  
+            "args": [],
+            /* example of args for the vid sample
+             "args": [
+                "-dark",
+                "-window 'test'"
+            ],*/           
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            //"compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe",
+            "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "V pretty printer",
+
+                    // Assumes prettyprinter in the .vscode folder
+                    "text": "source ${fileDirname}/.vscode/prettyprinter.py", 
+                    // but to avoid copying this file all the time. You could put it in i.e. in C:/mingw64 folder and use:
+                    //"text": "source C:/mingw64/prettyprinter.py",
+
+                    "ignoreFailures": false
+                }, 
+                /* In prettyprinter the charset can be set to UTF-8. Not sure if this below is also needed at the same time :)
+                {
+                    "text": "set charset UTF-8"
+                }*/
+            ],
+            "valuesFormatting": "parseText",
+            "preLaunchTask": "V GCC Debug Build",  // See tasks.json
+            "showDisplayString": true,
+        },
+        {
+            "name": "V TCC Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "V pretty printer",
+                    "text": "source C:/mingw64/prettyprinter.py",
+                    "ignoreFailures": false
+                },
+            ],
+            "valuesFormatting": "parseText",
+            "preLaunchTask": "V TCC Debug Build",
+            "showDisplayString": true
+        },
+        {
+            "name": "V TCC Prod",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "V pretty printer",
+                    "text": "source C:/mingw64/prettyprinter.py",
+                    "ignoreFailures": false
+                },            ],
+            "valuesFormatting": "parseText",
+            "preLaunchTask": "V TCC Build (No debug)",
+            "showDisplayString": true
+        },
+
+        // ============ C/C++ =================
+        {
+            "name": "g++.exe - Build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++.exe build active file"
+        }
+        
+    ],
+}
